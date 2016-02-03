@@ -1,5 +1,5 @@
 export default (options) => {
-  return files => {
+  return (files, metalsmith, done) => {
     Object.keys(files).forEach(filename => {
       let newName = filename
       options.forEach(replacement => {
@@ -10,5 +10,6 @@ export default (options) => {
         delete files[filename]
       }
     })
+    done()
   }
 }
